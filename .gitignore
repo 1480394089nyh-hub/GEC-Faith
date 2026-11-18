@@ -1,30 +1,30 @@
-# ===== 密钥（真实 key，绝不能提交，用 config.example.py 作为模板）=====
+# ===== Secrets (real keys; never commit. Use config.example.py as the template) =====
 config.py
 
-# ===== Python 缓存 =====
+# ===== Python cache =====
 __pycache__/
 *.pyc
 
-# ===== 本地临时 / 调试文件 =====
+# ===== Local temp / debug files =====
 _dump.txt
 p9out.txt
 test.in
 train_pkg.zip
 
-# ===== 模型权重与训练中间产物（体积大，不属于源码/数据）=====
+# ===== Model weights & training artifacts (large, not source/data) =====
 results/discriminator/*/checkpoints/
 results/discriminator/*/best_model/
 results/discriminator/*/tb_logs/
 
-# ===== 第三方原始数据压缩包（重复于 extracted/，不进仓库）=====
+# ===== Third-party raw data archive (duplicated by extracted/, not committed) =====
 data/raw/nlpcc2018/Data.zip
 
-# ===== Office/WPS 临时锁文件 =====
+# ===== Office/WPS lock files =====
 ~$*
 
-# ===== 只上传「代码 + 数据集」：内部文档 / 中间产物一律不上传 =====
+# ===== Upload only "code + dataset": internal docs / intermediate artifacts excluded =====
 
-# 内部文档
+# Internal docs
 标注指南_v1.md
 标注指南_v2.md
 标注指南_v3.md
@@ -34,14 +34,14 @@ data/raw/nlpcc2018/Data.zip
 证据链与实验方案.md
 论文框架.docx
 
-# 内部工作目录（复核过程文件）
+# Internal working dir (review process files)
 _review/
 
-# 第三方数据 + 参考文献（非本项目产出）
+# Third-party data + references (not produced by this project)
 data/
 references/
 
-# 辅助/一次性脚本（只留核心 4 个）
+# Auxiliary / one-off scripts (keep only the 4 core ones)
 scripts/check_quotes.py
 scripts/inspect_data.py
 scripts/m2_to_gold.py
@@ -50,7 +50,7 @@ scripts/merge.py
 scripts/finalize_review.py
 scripts/prepare_annotation.py
 
-# results 中间产物（只保留 results/full/标注表_全量_定稿.csv + 双标 300 条用于算 κ）
+# results intermediates (keep only results/full/标注表_全量_定稿.csv + the 300 double-annotation rows for kappa)
 results/annotation/*
 !results/annotation/双标_300_我.csv
 !results/annotation/双标_300_同学.csv
