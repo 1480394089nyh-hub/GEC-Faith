@@ -10,7 +10,7 @@ Output: results/discriminator/
           data_split_report.md                   -- split method + per-split label distribution + length stats
 
 Key method (can go straight into the paper's Methods):
-  - instance = one (original src, LLM correction hyp) pair; label = the "你的标注" column (final).
+  - instance = one (original src, LLM correction hyp) pair; label = the "标签" (label) column (final).
   - split unit = sentence (2000), so the 3 model outputs of the same sentence never cross
     train/val/test, preventing source-sentence leakage.
   - stratification key = the "most severe" label among a sentence's 3 instances
@@ -42,7 +42,7 @@ def main():
 
     rows = list(csv.reader(open(SRC_CSV, encoding="gbk")))
     header, data = rows[0], rows[1:]
-    assert header == ["序号", "原句", "模型", "大模型改句", "你的标注", "复核判定"], f"列名不符：{header}"
+    assert header == ["序号", "原句", "模型", "大模型改句", "标签"], f"列名不符：{header}"
     assert len(data) == 6000, f"行数 {len(data)} != 6000"
 
     # ---- group by sentence: sent_idx = (序号-1)//3 + 1, 3 consecutive rows = same sentence (deepseek/qwen/glm) ----
@@ -128,7 +128,7 @@ def _build_report(splits):
     lines.append("> 自动生成：`scripts/prepare_train_data.py`，重跑即更新。\n")
     lines.append("## 方法与参数\n")
     lines.append("- 源数据：`results/full/标注表_全量_定稿.csv`（6000 条 = 2000 句 × 3 模型，GBK）。")
-    lines.append("- 实例 = 一条 `(原句 src, 大模型改句 hyp)` 对；标签取「你的标注」列（定稿）。")
+    lines.append("- 实例 = 一条 `(原句 src, 大模型改句 hyp)` 对；标签取「标签」列（定稿）。")
     lines.append("- 切分单位 = 句子（2000 句），同一句的 3 条模型输出不跨 train/val/test，避免原句泄漏。")
     lines.append("- 分层键 = 该句 3 条实例里「最严重」标签（优先级 幻觉 > 语义漂移 > 过度纠正 > 漏改 > 忠实正确）。")
     lines.append("- `StratifiedShuffleSplit`，`random_state=42`，句子级比例 train:val:test = 80:10:10。\n")

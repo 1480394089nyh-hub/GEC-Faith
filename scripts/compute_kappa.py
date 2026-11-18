@@ -2,7 +2,7 @@
 """Compute inter-annotator agreement kappa (Cohen's kappa) between two annotators.
 
 Usage: python compute_kappa.py 标注表_我.csv 标注表_同学.csv
-Assumes: both CSVs have the columns "序号" and "你的标注" (same header as the annotation table).
+Assumes: both CSVs have the columns "序号" and "标签" (same header as the annotation table).
 
 Output: printed to console + saved to results/annotation/kappa_报告.md (for the paper).
 """
@@ -33,7 +33,7 @@ def main():
     b_rows = read_csv(b_path)
     # header: 序号, 原句, 模型, 大模型改句, 你的标注
     header = a_rows[0]
-    assert header[0] == "序号" and header[4] == "你的标注", f"表头不符: {header}"
+    assert header[0] == "序号" and header[4] == "标签", f"表头不符: {header}"
 
     # key by 序号, store (原句, 改句, 标签)
     def to_dict(rows):
