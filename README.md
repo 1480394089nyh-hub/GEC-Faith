@@ -46,8 +46,8 @@
 ## Installation
 
 ```bash
-git clone <repo-url>
-cd zh-gec-llm
+git clone https://github.com/1480394089nyh-hub/GEC-Faith.git
+cd GEC-Faith
 pip install -r requirements.txt   # only discriminator training needs torch/transformers/etc.; data & scoring use stdlib only
 ```
 
