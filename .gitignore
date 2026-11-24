@@ -10,6 +10,7 @@ _dump.txt
 p9out.txt
 test.in
 train_pkg.zip
+_inspect_*.txt
 
 # ===== Model weights & training artifacts (large, not source/data) =====
 results/discriminator/*/checkpoints/
@@ -34,6 +35,10 @@ data/raw/nlpcc2018/Data.zip
 证据链与实验方案.md
 论文框架.docx
 论文_期刊版_初稿.docx
+论文_方法与结果_重写.md
+论文_方法与结果_重写.docx
+论文_期刊版_扩写.md
+论文_期刊版_扩写.docx
 
 # Internal working dir (review process files)
 _review/
