@@ -19,12 +19,12 @@
 
 ## Main Results
 
-- **Annotation agreement**: double-annotated subset kappa = 0.7539; full final **kappa = 0.9682** (98.53% agreement).
+- **Annotation agreement**: double-annotated subset (300) κ = 0.7539 (substantial); full 6000-set main-annotation + AI review: 93.0% initial agreement, 98.53% after adjudication.
 - **Discriminator** (600 held-out test examples):
-  - binary: Accuracy 0.7417; faithful F1 0.8264 / unfaithful F1 0.4951 (vs "always-faithful" baseline 0).
-  - 5-class: Accuracy 0.6667; faithful-correct 0.7787 / missed 0.4292 / semantic-drift 0.2418 / over-correction 0.50 / hallucination 0.
+  - binary: Accuracy 0.737±0.014; faithful F1 0.818±0.016 / unfaithful F1 0.522±0.018 (3 seeds mean±std; vs "always-faithful" baseline 0).
+  - 5-class: Accuracy 0.691±0.022; faithful-correct 0.793±0.015 / missed 0.469±0.040 / semantic-drift 0.262±0.043 / over-correction 0.576±0.131 / hallucination 0.
 - **Discrimination**: models with nearly identical F0.5 (deepseek 0.328 / glm 0.327, Δ=0.0008) differ in failure-mode distribution by **TVD = 0.21**.
-- **Quality gate**: using the discriminator as a post-filter raises output faithfulness **68.67% -> 76.72% (+8.05pp)**, keeping 89.56% of good corrections.
+- **Quality gate**: using the discriminator as a post-filter raises output faithfulness **68.67% -> 77.28% (+8.61pp)**, keeping 88.35% of good corrections.
 
 ## Dataset
 
